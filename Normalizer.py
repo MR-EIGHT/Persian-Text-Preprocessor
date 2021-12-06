@@ -7,7 +7,7 @@ class Normalizer:
                                 '8': '۸', '9': '۹'}
 
     def normalize(self, text):
-        text = list(text)
+        text = list(text.lower())
         for index in range(0, len(text)):
             if self.arabic_alphabet.get(text[index]) is not None:
                 text[index] = self.arabic_alphabet.get(text[index])
