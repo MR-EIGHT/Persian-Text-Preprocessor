@@ -5,6 +5,8 @@ class Stemmer:
         self.verb_ends = ['ام', 'ای', 'ایم', 'اید', 'اند']
 
     def stem(self, word):
+        if len(word) <4:
+            return word.strip()
         for end in self.ends:
             if word.endswith(end):
                 word = word[:-len(end)]
