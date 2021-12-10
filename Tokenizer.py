@@ -4,7 +4,7 @@ class Tokenizer:
         self.english_punctuations = {'.', ',', ':', ';', '!', '#', '@', '$', '%', '^', '&', '*', '(', ')', '"', "'",
                                      '?'}
         self.persian_punctuations = {'.', '،', ':', '؛', '!', '#', '@', '$', '^', '&', '*', '(', ')', '"', "'", '؟',
-                                     '[', ']', '-', '/', '=', "«", "»", "٪"}
+                                     '[', ']', '-', '/', '=', "«", "»", "٪", u'\u200c'}
         self.tokens = []
 
     def tokenize(self, text):
@@ -21,4 +21,4 @@ class Tokenizer:
         return self.tokens
 
     def __issplitter__(self, char):
-        return char in self.persian_punctuations or char in self.persian_punctuations or char.isspace()
+        return char in self.persian_punctuations or char in self.english_punctuations or char.isspace()
