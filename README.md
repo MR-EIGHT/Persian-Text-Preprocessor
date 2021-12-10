@@ -6,3 +6,4 @@ This is a simple preprocessor for Persian texts.
 * Tokenizer
 * Normalizer
 * Stemmer
+* Wikipedia Reader
