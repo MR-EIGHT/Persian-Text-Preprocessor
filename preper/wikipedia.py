@@ -5,9 +5,3 @@ path = r"K:\Lessons 00-1\++ Progrmming Assignments And Projects ++\Information R
 with BZ2File(path) as xml_file:
     tree = et.parse(xml_file)
     root = tree.getroot()
-
-
-
-
-
-

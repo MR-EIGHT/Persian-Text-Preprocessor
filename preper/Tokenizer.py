@@ -23,4 +23,4 @@ class Tokenizer:
 
     def __issplitter__(self, char, only_persian=False):
         return char in self.persian_punctuations or char in self.english_punctuations or char.isspace() or (
-                    only_persian and char.isascii())
+                only_persian and char.isascii())
