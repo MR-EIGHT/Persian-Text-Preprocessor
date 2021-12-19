@@ -1,5 +1,4 @@
 import xml.etree.ElementTree as et
-from Document import Document
 import preper
 
 
@@ -13,7 +12,7 @@ class Wikipedia:
         root = et.fromstring(file_string)
         counter = 0
         for doc in root.findall(r'doc'):
-            self.doc_store.append(Document(doc.find('title').text, doc.find('abstract').text, counter))
+            self.doc_store.append(preper.Document(doc.find('title').text, doc.find('abstract').text, counter))
             counter += 1
 
         for doc in self.doc_store:
