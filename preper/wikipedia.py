@@ -22,5 +22,5 @@ class Wikipedia:
             if doc.title is not None:
                 doc.body = normalizer.normalize(doc.title)
 
-    def ge_docs(self):
+    def get_docs(self):
         return self.doc_store
