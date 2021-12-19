@@ -1,7 +1,18 @@
 import xml.etree.ElementTree as et
-from bz2 import BZ2File
+from Document import Document
+import preper
 
-path = r"K:\Lessons 00-1\++ Progrmming Assignments And Projects ++\Information Retrieval Projects\Project1\fawiki-20211101-pages-articles-multistream.xml.bz2"
-with BZ2File(path) as xml_file:
-    tree = et.parse(xml_file)
-    root = tree.getroot()
+normalizer = preper.Normalizer()
+
+file = open(r"..\data\fawiki-20211101-abstract.xml", 'r', encoding='utf-8').read()
+root = et.fromstring(file)
+counter = 0
+doc_store = []
+for doc in root.findall(r'doc'):
+    doc_store.append(Document(doc.find('title').text, doc.find('abstract').text, counter))
+    counter += 1
+
+for doc in doc_store:
+    if doc.body is not None:
+        doc.body = normalizer.normalize(doc.body)
+
