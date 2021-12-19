@@ -2,17 +2,25 @@ import xml.etree.ElementTree as et
 from Document import Document
 import preper
 
-normalizer = preper.Normalizer()
 
-file = open(r"..\data\fawiki-20211101-abstract.xml", 'r', encoding='utf-8').read()
-root = et.fromstring(file)
-counter = 0
-doc_store = []
-for doc in root.findall(r'doc'):
-    doc_store.append(Document(doc.find('title').text, doc.find('abstract').text, counter))
-    counter += 1
+class Wikipedia:
+    doc_store = []
 
-for doc in doc_store:
-    if doc.body is not None:
-        doc.body = normalizer.normalize(doc.body)
+    def __init__(self, path):
+        normalizer = preper.Normalizer()
+        file = open(path, 'r', encoding='utf-8')
+        file_string = file.read()
+        root = et.fromstring(file_string)
+        counter = 0
+        for doc in root.findall(r'doc'):
+            self.doc_store.append(Document(doc.find('title').text, doc.find('abstract').text, counter))
+            counter += 1
 
+        for doc in self.doc_store:
+            if doc.body is not None:
+                doc.body = normalizer.normalize(doc.body)
+            if doc.title is not None:
+                doc.body = normalizer.normalize(doc.title)
+
+    def ge_docs(self):
+        return self.doc_store
