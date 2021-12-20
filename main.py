@@ -2,6 +2,7 @@ from preper import Stemmer
 from preper import Normalizer
 from preper import Tokenizer
 from preper import Wikipedia
+
 stemmer = Stemmer()
 print(stemmer.stem("گفتۀ"))
 print(stemmer.stem("نویسنده هایش"))
@@ -18,9 +19,11 @@ print(tokenizer.tokenize(
     "علی و حسن، به مدرسه رفتند. و در راه بازگشت به خانه دوستانِ قدیمی شان را دیدند. آیا آنها خوشحال شدند؟ یا خیر؟! "
     "می‌خواهم بدانم."))
 
-wiki = Wikipedia("./data/fawiki-20211101-abstract.xml")
-print(len(wiki.doc_store))
+# wiki = Wikipedia("./data/fawiki-20211101-abstract.xml")
+# print(len(wiki.doc_store))
 
 
-# d = open("data.xml", "r", encoding='utf-8')
-# print(stemmer.list_stem(tokenizer.tokenize(d.read(), True)))
+
+
+
+
