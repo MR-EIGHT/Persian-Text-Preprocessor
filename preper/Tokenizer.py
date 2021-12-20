@@ -9,6 +9,7 @@ class Tokenizer:
         self.tokens = []
 
     def tokenize(self, text, only_persian=False):
+        self.tokens = []
         tok = []
         for i in range(0, len(text)):
             if not self.__issplitter__(text[i], only_persian):
