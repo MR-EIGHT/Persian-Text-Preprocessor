@@ -19,7 +19,7 @@ class Wikipedia:
             if doc.body is not None:
                 doc.body = normalizer.normalize(doc.body)
             if doc.title is not None:
-                doc.body = normalizer.normalize(doc.title)
+                doc.body = normalizer.normalize(doc.body)
 
     def get_docs(self):
         return self.doc_store
